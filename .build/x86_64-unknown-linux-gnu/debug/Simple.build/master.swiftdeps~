@@ -1,0 +1,6 @@
+version: "Swift version 5.4.2 (swift-5.4.2-RELEASE)"
+options: "97ec66270ea3c497d8a47b951720abb1"
+build_time: [1634738198, 54766815]
+inputs:
+  "/home/andrew-thomas/projects/testing/main.swift": [1634738196, 15027135]
+  "/home/andrew-thomas/projects/testing/testingGet.swift": [1633700322, 964329991]

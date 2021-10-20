@@ -1,0 +1,76 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "swiftCommands" : {
+    "C.Simple-debug.module" : {
+      "executable" : "/opt/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc",
+      "importPath" : "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/andrew-thomas/projects/testing/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/andrew-thomas/projects/testing/testingGet.swift"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "Simple",
+      "moduleOutputPath" : "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/Simple.swiftmodule",
+      "objects" : [
+        "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/main.swift.o",
+        "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/testingGet.swift.o"
+      ],
+      "otherArgs" : [
+        "-target",
+        "x86_64-unknown-linux-gnu",
+        "-swift-version",
+        "5",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-g",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/ModuleCache",
+        "-parseable-output",
+        "-color-diagnostics"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/testingGet.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/Simple.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/home/andrew-thomas/projects/testing/main.swift",
+        "/home/andrew-thomas/projects/testing/testingGet.swift"
+      ],
+      "tempsPath" : "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build",
+      "WMO" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "testDiscoveryCommands" : {
+
+  }
+}

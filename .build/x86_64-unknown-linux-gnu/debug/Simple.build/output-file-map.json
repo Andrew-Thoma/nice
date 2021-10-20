@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/master.swiftdeps"
+  },
+  "/home/andrew-thomas/projects/testing/main.swift": {
+    "dependencies": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/main.d",
+    "object": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/main.swift.o",
+    "swiftmodule": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/main~partial.swiftmodule",
+    "swift-dependencies": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/main.swiftdeps"
+  },
+  "/home/andrew-thomas/projects/testing/testingGet.swift": {
+    "dependencies": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/testingGet.d",
+    "object": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/testingGet.swift.o",
+    "swiftmodule": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/testingGet~partial.swiftmodule",
+    "swift-dependencies": "/home/andrew-thomas/projects/testing/.build/x86_64-unknown-linux-gnu/debug/Simple.build/testingGet.swiftdeps"
+  }
+}

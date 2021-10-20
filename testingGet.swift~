@@ -1,0 +1,43 @@
+import Foundation
+import FoundationNetworking
+
+// Form the request
+var request = URLRequest(url: URL(string: "https://www.codermerlin.com/vapor/du-chen/games/\(main.board.id)/cells")!)
+request.httpMethod = "GET"
+// Execute synchronously (uses extension in code below)
+let (data, response, error) = URLSession.shared.syncRequest(with: request)
+if let data = data,
+   let string = String(data: data, encoding: .utf8) {
+    print(string)
+
+} else if let error = error {
+    print("Error: \(error)")
+} else {
+    print("An unexpected error occurred.")
+}
+
+
+
+
+// Reference: https://stackoverflow.com/questions/26784315/can-i-somehow-do-a-synchronous-http-request-via-nsurlsession-in-swift
+extension URLSession {
+    func syncRequest(with request: URLRequest) -> (Data?, URLResponse?, Error?) {
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+
+        let dispatchGroup = DispatchGroup()
+        let task = dataTask(with: request) {
+            data = $0
+            response = $1
+            error = $2
+            dispatchGroup.leave()
+        }
+        dispatchGroup.enter()
+        task.resume()
+        dispatchGroup.wait()
+
+        return (data, response, error)
+    }
+
+}
