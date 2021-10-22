@@ -1,20 +1,20 @@
 import Foundation
 import FoundationNetworking
 import SwiftShims
-/*
+
 struct Board: Codable{
-    var id: String
+    var id: Int
 }
-*/
+
 let decoder = JSONDecoder()
-/*
-var request = URLRequest(url: URL(string: "https://www.codermerlin.com/vapor/du-chen/games")!)
+
+var request = URLRequest(url: URL(string: "https://www.codermerlin.com/vapor/du-chen/games?difficulty=easy")!)
 request.httpMethod = "POST"
 let (data, response, error) = URLSession.shared.syncRequest(with: request)
 var board : Board? = nil 
 if let data = data,
    let string = String(data: data, encoding: .utf8) {
-    //    print(string)
+        print(string)
     guard let data  = string.data(using: .utf8),
           let potentialBoard = try? decoder.decode(Board.self, from: data) else {
         fatalError("Failed to decode json into board.")
@@ -26,7 +26,7 @@ if let data = data,
 } else {
     print("An unexpected error occurred.")
 }
-func getID() -> String{
+func getID() -> Int{
     return (board!.id)
     
 }
@@ -34,7 +34,7 @@ print(getID())
 
 //print(getID())
 
-*/
+
 
 //get testing
 // Structure definitions
@@ -55,10 +55,9 @@ print(getID())
     struct Boardy: Codable {
          var board: [Box]
     }
-var board : Boardy? = nil
-
+    var boardy: Boardy? = nil 
 func getTesting() {
-    
+    /*
     let json =
       #"""
       {"board":
@@ -108,27 +107,74 @@ func getTesting() {
         {"position":{"boxIndex":1,"cellIndex":6},"value":6},{"position":{"boxIndex":1,"cellIndex":7},"value":7},
         {"position":{"boxIndex":1,"cellIndex":8},"value":8}]}
         ]}
-      """#
-  /*     var request = URLRequest(url: URL(string: "https://www.codermerlin.com/vapor/du-chen/games/\(getID())/cells?filter=all")!)
+      """# */
+       var request = URLRequest(url: URL(string: "https://www.codermerlin.com/vapor/du-chen/games/\(getID())/cells?filter=all")!)
         request.httpMethod = "GET"
 
         // Execute synchronously (uses extension in code below)
         let (data, response, error) = URLSession.shared.syncRequest(with: request)
-        var board : Boardy? = nil 
+        //var boardy : Boardy? = nil 
         if let data = data, 
-        let string = String(data: data, encoding: .utf8) { 
-    */ 
-    guard let data = json.data(using: .utf8),
+           let string = String(data: data, encoding: .utf8) { 
+        
+
+    guard let data = string.data(using: .utf8),
           let potentialBoard : Boardy = try? decoder.decode(Boardy.self, from: data) else {
         fatalError("did not decode properly")   
         
     }
-     board = potentialBoard
-} 
-//}
+     boardy = potentialBoard
+       } else if let error = error {
+            print( "Error: \(error)")
+        }
+        else {
+            print("An unexpected eorror occured")
+        }
+
+        } 
+
 getTesting() 
-print(board!.board[0].cells[7].value!)
-/*
+print(boardy!.board[0].cells[7].value!)
+
+//Put testing
+let cellIndex = 7
+let boxIndex = 0
+let value = 1
+struct PutData: Codable{
+    var value: Int
+    
+}
+
+func putTesting() {
+    var  putData = PutData(value: value)
+    let encoder = JSONEncoder()
+    guard let data1 = try? encoder.encode(putData)
+         /* let jsonBody = Data?(data: data, encoding: .utf8) */else {
+        fatalError("Failed to encode data into json.")
+    }
+//    print(jsonBody)
+    var request = URLRequest(url: URL(string: "https://www.codermerlin.com/vapor/du-chen/games/\(getID())/cells/\(boxIndex)/\(cellIndex)")!)
+request.httpMethod = "PUT"
+request.httpBody = data1
+
+//request.addValue(value: value, forHTTPHeaderField: forHTTPHeaderField)
+        // Execute synchronously (uses extension in code below)
+        let (data, response, error) = URLSession.shared.syncRequest(with: request)
+        //var boardy : Boardy? = nil 
+        if let data = data, 
+        let string = String(data: data, encoding: .utf8) { 
+        } else if let error = error {
+            print( "Error: \(error)")
+        }
+        else {
+            print("An unexpected eorror occured")
+        }
+}
+putTesting()
+getTesting() 
+print(boardy!.board[0].cells[7].value!)
+
+
 // Reference: https://stackoverflow.com/questions/26784315/can-i-somehow-do-a-synchronous-http-request-via-nsurlsession-in-swift
 extension URLSession {
     func syncRequest(with request: URLRequest) -> (Data?, URLResponse?, Error?) {
@@ -151,5 +197,4 @@ extension URLSession {
     }
 }
 
-*/
 
